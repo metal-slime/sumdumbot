@@ -15,8 +15,8 @@ def match(msg):
             htmlBody = BeautifulSoup(httpreq)
             title   = htmlBody.html.head.title.string
             if title is not None:
-                toSend =  BeautifulSoup(title).__str__('utf-8').replace('\r', '').replace('\n', '').strip()
                 toSend =  BeautifulStoneSoup(toSend,convertEntities=BeautifulStoneSoup.HTML_ENTITIES).contents[0]
+                toSend =  BeautifulSoup(title).__str__('utf-8').replace('\r', '').replace('\n', '').strip()
             else:
                 toSend = "No Title Found"
         else:
